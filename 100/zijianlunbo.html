@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body style="margin:0">
+	<div id="app" style="background-color: pink;">
+		<div style="display: flex; justify-content: center; align-items: center;">
+		    <img :src="imgTarget" width="500px" style="margin-top: 100px;" @mouseenter="closeTimer" @mouseleave="openTimer">
+		</div>
+		<ul>
+			<li v-for="(item,index) in imgArr" @click="choice(item)">{{ index + 1 }}</li>
+		</ul>
+		<button @click="nextImg">下一张</button>
+	</div>
+
+	<script src="./vue.js"></script>
+	<script type="text/javascript">
+		var app = new Vue({
+			el: "#app",
+			data:{
+				imgArr:['./111.jpeg','./222.jpeg','./333.jpeg','./444.jpeg','./555.jpeg','./666.jpeg'],
+				imgTarget:'./111.jpeg',
+				num: 0,
+				Timer:null
+			},
+			created() {
+            	this.Timer = setInterval(this.nextImg,1000)
+            },
+			methods:{
+				choice(item) {
+					this.imgTarget = item
+				},
+				nextImg() {
+					if (this.num == this.imgArr.length-1) {
+						this.num = -1
+					}
+					this.num++
+					this.imgTarget = this.imgArr[this.num]
+				},
+				closeTimer() {
+					clearInterval(this.Timer)
+				},
+				openTimer() {
+					this.Timer = setInterval(this.nextImg,1000)
+				}
+			}
+		})
+	</script>
+</body>
+</html>
