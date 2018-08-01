@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>  
+	<!-- v-model通过computed实现 -->
+	<div id="computed">
+        {{modelStr}}
+        <input type="text" @input="test">
+    </div>
+	<script type="text/javascript" src="./vue.js"></script>
+	<script type="text/javascript">
+		var com = new Vue({
+			el: "#computed",
+			data:{
+				msg:"Hello World"
+			},
+			methods:{
+                test(event){
+                	this.msg = event.target.value
+                }
+			},
+			computed:{
+				modelStr:{
+				    set:function (newValue) {
+						this.msg = newValue
+                    },
+					get:function () {
+						return this.msg
+                    }
+				}
+			}
+		})
+	</script>
+</body>
+</html>

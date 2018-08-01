@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <audio :src="current_song" autoplay="" controls="" @ended="nextSong"></audio>
+        <ul>
+            <li v-for="(item,index) in songs" @click="clickHandler(index)">
+                <h3>歌名：{{item.name}}</h3>
+                <p>歌手：{{item.author}}</p>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="vue.js"></script>
+    <script>
+        var songs = [
+            {id:1,name:'难念的经',src:'./1.mp3',author:'周华健'},
+            {id:2,name:'喜欢你',src:'./2.mp3',author:'beyond'},
+            {id:3,name:'今宵多珍重',src:'./3.mp3',author:'陈百强'},
+        ];
+        var app = new Vue({
+            el: '#app',
+            data:{
+                songs:songs,
+                current_song:'./1.mp3',
+                originIndex:0
+            },
+            methods:{
+                clickHandler(index) {
+                    this.current_song = this.songs[index].src
+                },
+                nextSong() {
+                    console.log('下一首');
+                    this.originIndex+=1;
+                    this.current_song = this.songs[this.originIndex].src
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="computed">
+		{{ msg.split('').reverse().join('') }}
+		{{reverseStr}}
+		{{newreverseStr}}
+		<p><button @click="clickHandler">修改</button></p>
+		<p><button @click="SetAtt">自定义Set属性测试</button></p>
+	</div>
+	<script type="text/javascript" src="./vue.js"></script>
+	<script type="text/javascript">
+		var com = new Vue({
+			el: "#computed",
+			data:{
+				msg:"Hello World"
+			},
+			methods:{
+                clickHandler() {
+                	this.msg = "Hello 美女"
+                },
+                SetAtt(){
+                    console.log(this.newreverseStr)
+                    this.msg = "MMMP World"
+                    console.log(this.msg)
+
+                }
+			},
+			computed:{
+				reverseStr() {
+					return this.msg.split('').reverse().join('')  //GET
+				},
+				newreverseStr:{
+					set: function(newValue) {
+						this.msg = newValue   //自定义SET方法；
+					},
+					get: function(){
+						// return this.msg.split('').reverse().join('')  //GET
+						return `666${this.msg}666`
+					}
+				}
+			} 
+		})
+	</script>
+</body>
+</html>

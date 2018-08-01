@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .one {
+            width: 300px;
+            background-color: dodgerblue;
+            height: 48px;display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .two {
+            width: 100px;
+            height: 48px;
+            text-align: center;
+            line-height: 48px;
+        }
+        .three {
+            width: 300px;
+            height: 48px;
+            text-align: center;
+        }
+        .dis {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="one">
+            <span class="two" @mouseenter="enter" >666</span>
+            <span class="two" @mouseenter="enter" >777</span>
+            <span class="two" @mouseenter="enter" >888</span>
+        </div>
+        <div class="three" v-if="status">
+            111
+        </div>
+        <div class="three" v-if="status">
+            222
+        </div>
+        <div class="three" v-if="status" >
+            333
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                status:false,
+            },
+            methods:{
+                enter(e) {
+                   console.log(this)
+                }
+            }
+        })
+    </script>
+</body>
+</html>
