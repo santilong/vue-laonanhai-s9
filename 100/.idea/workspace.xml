@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e52a9b7f-1f22-45d1-ade6-023fff117ea3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/1.mp3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2.mp3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/3.mp3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Vue标签页.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/带Computed的audio.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/普通audio.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/01-studyVue2.html" afterPath="$PROJECT_DIR$/01-studyVue2.html" />
-    </list>
+    <list default="true" id="e52a9b7f-1f22-45d1-ade6-023fff117ea3" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

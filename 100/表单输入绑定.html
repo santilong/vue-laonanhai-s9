@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <input v-model="msg">
+        <!--<input v-model="msg" @input="test">-->
+        <input type="checkbox" v-model="checked">
+        {{checked}}
+        <div>
+            <select v-model="selected">
+              <option value="abc">ABC</option>
+            </select>
+            {{selected}}
+        </div>
+
+        <div>
+            <input
+              type="checkbox"
+              v-model="toggle"
+              true-value="yes"
+              false-value="no"
+            >
+            {{toggle}}
+        </div>
+
+        <div>
+            <input type="radio" v-model="pick" :value="a">
+            {{pick}}
+        </div>
+
+
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                msg:'',
+                checked:false,
+                selected:'',
+                toggle:'',
+                a:'121',
+                pick:''
+            },
+//            methods:{
+//                doThis(){
+//                    alert('doThis')
+//                },
+//                test(event){
+//                    this.msg = event.target.value
+//                }
+//            }
+        })
+
+    </script>
+</body>
+</html>

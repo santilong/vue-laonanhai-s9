@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <button v-on:click.stop="doThis">stop</button>
+        <button v-on:click.prevent="doThis">prevent</button>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+
+            },
+            methods:{
+                doThis(){
+                    alert('doThis')
+                }
+            }
+        })
+    </script>
+</body>
+</html>

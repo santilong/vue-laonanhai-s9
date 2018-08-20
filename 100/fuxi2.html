@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <div v-for="item in list1">
+            {{item.msg}}
+        </div>
+        <ul>
+            <template v-for="item in list1">
+                <li>{{item.msg}}</li>
+                <li class="divider" role="presentation"></li>
+            </template>
+        </ul>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                list1:[
+                    {msg:1},
+                    {msg:2},
+                    {msg:3},
+                    {msg:4},
+                    {msg:'aaa'}
+                ]
+            }
+        });
+        app.list1.push({msg:5});
+        app.list1 = app.list1.filter(function (item) {
+            return item.msg.match(/aaa/)
+
+        });
+        console.log(app.list1)
+    </script>
+</body>
+</html>

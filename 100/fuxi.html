@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <div v-bind:id="dynamicId">1</div>
+        <button v-bind:disabled="isButtonDisabled">Button</button>
+        <div class="t1" :class="{t1:isTrue}">666</div>
+        <div :class="classObject">777</div>
+        <div v-bind:style="{ color: activeColor, fontSize: fontSize + 'px' }">888</div>
+        <div v-bind:style="[baseStyles, overridingStyles]">999</div>
+         <div class="demo" :style="[myStyle,]">000</div>
+        <div style=""></div>
+        <template v-if="ok">
+          <h1>Title</h1>
+          <p>Paragraph 1</p>
+          <p>Paragraph 2</p>
+        </template>
+
+        <template v-if="loginType === 'username'">
+          <label>Username</label>
+          <input placeholder="Enter your username">
+        </template>
+        <template v-else>
+          <label>Email</label>
+          <input placeholder="Enter your email address">
+        </template>
+
+        <div v-for="(value,key,index) in forObject">
+            {{index}}-{{key}}-{{value}}
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data:{
+                dynamicId:true,
+                isButtonDisabled:false,
+                isTrue:true,
+                classObject:{
+                    active:true,
+                    'text-danger':true
+                },
+                isActive: true,
+                error: null,
+                activeColor: 'red',
+                fontSize: 30,
+                baseStyles:'red',
+                overridingStyles:'green',
+                ok:true,
+//                loginType:'username'
+                forObject:{
+                    name:'santi',
+                    age:'34',
+                    gender:'FM'
+                }
+            },
+            computed:{
+//                classObject(){
+//                    return {
+//                        active:this.isActive && !this.error,
+//                        'text-danger': this.error && this.error.type == 'fatal'
+//                    }
+//                }
+                myStyle(){
+                    return {color:'green'}
+                }
+            }
+        })
+    </script>
+</body>
+</html>
